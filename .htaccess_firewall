@@ -1,0 +1,36 @@
+Options -Indexes
+
+# Deny direct access to hidden files (including .env, .git, etc.).
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>
+
+# Deny direct access to common sensitive project files.
+<FilesMatch "^(composer\.(json|lock)|config(\.sample)?\.php|docker-compose(\..+)?\.yml|Dockerfile|README\.md|CHANGELOG\.md|LICENSE|manifest\.json)$">
+    Require all denied
+</FilesMatch>
+
+# Default deny for PHP-like scripts.
+<FilesMatch "\.(php|php[0-9]?|phtml|phar)$">
+    Require all denied
+</FilesMatch>
+
+# Allow only required application entry points and installer steps.
+<FilesMatch "^(index|update|radius|step[2-5])\.php$">
+    Require all granted
+</FilesMatch>
+
+RewriteEngine On
+
+# Canonicalize legacy query routing to clean path URLs.
+# Only trigger on original browser request to avoid internal rewrite loops.
+RewriteCond %{REQUEST_METHOD} =GET
+RewriteCond %{THE_REQUEST} \s/+[^\s?]*(?:index\.php)?\?_route= [NC]
+RewriteCond %{QUERY_STRING} !^_route=admin/?(?:&|$) [NC]
+RewriteCond %{QUERY_STRING} ^_route=([^&]+)&?(.*)$ [NC]
+RewriteRule ^(?:index\.php)?$ %1?%2 [R=301,L,NE]
+
+# Front controller routing.
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php [QSA,L]

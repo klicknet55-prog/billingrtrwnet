@@ -1,0 +1,100 @@
+2026-02-14 16:57:41
+REQUEST:
+{
+    "paymentMethod": "BC",
+    "paymentAmount": 1000,
+    "merchantCode": "DS28131",
+    "merchantOrderId": 15,
+    "productDetails": "VCR 3 JAM",
+    "merchantUserInfo": "Hariyanto",
+    "customerVaName": "Hariyanto",
+    "email": "denyz8643@gmail.com",
+    "phoneNumber": "klickerz86",
+    "itemDetails": [
+        {
+            "name": "VCR 3 JAM",
+            "price": 1000,
+            "quantity": 1
+        }
+    ],
+    "returnUrl": "https:\/\/billing.klickerz.my.id\/?_route=order\/view\/15\/check",
+    "signature": "7ea3ea2257ee95b3fb11def56779af41"
+}
+RESPONSE:
+{"Message":"Minimum Payment 10000 IDR"}
+
+2026-02-14 17:04:49
+REQUEST:
+{
+    "paymentMethod": "NQ",
+    "paymentAmount": 10000,
+    "merchantCode": "DS28131",
+    "merchantOrderId": 15,
+    "productDetails": "VCR 3 JAM",
+    "merchantUserInfo": "Hariyanto",
+    "customerVaName": "Hariyanto",
+    "email": "denyz8643@gmail.com",
+    "phoneNumber": "klickerz86",
+    "itemDetails": [
+        {
+            "name": "VCR 3 JAM",
+            "price": 10000,
+            "quantity": 1
+        }
+    ],
+    "returnUrl": "https:\/\/billing.klickerz.my.id\/?_route=order\/view\/15\/check",
+    "signature": "7f28bb4cc246d5db8b93491d4416716f"
+}
+RESPONSE:
+{"Message":"Failed to generate QR String Nobu"}
+
+2026-02-14 17:06:52
+REQUEST:
+{
+    "paymentMethod": "DA",
+    "paymentAmount": 10000,
+    "merchantCode": "DS28131",
+    "merchantOrderId": 15,
+    "productDetails": "VCR 3 JAM",
+    "merchantUserInfo": "Hariyanto",
+    "customerVaName": "Hariyanto",
+    "email": "denyz8643@gmail.com",
+    "phoneNumber": "klickerz86",
+    "itemDetails": [
+        {
+            "name": "VCR 3 JAM",
+            "price": 10000,
+            "quantity": 1
+        }
+    ],
+    "returnUrl": "https:\/\/billing.klickerz.my.id\/?_route=order\/view\/15\/check",
+    "signature": "7f28bb4cc246d5db8b93491d4416716f"
+}
+RESPONSE:
+{"merchantCode":"DS28131","reference":"DS2813126D1Z0NIM5A1MNORD","paymentUrl":"","amount":"","statusCode":"-100","statusMessage":"Failed to generate Payment URL Dana"}
+
+2026-02-14 17:07:10
+REQUEST:
+{
+    "paymentMethod": "BR",
+    "paymentAmount": 10000,
+    "merchantCode": "DS28131",
+    "merchantOrderId": 15,
+    "productDetails": "VCR 3 JAM",
+    "merchantUserInfo": "Hariyanto",
+    "customerVaName": "Hariyanto",
+    "email": "denyz8643@gmail.com",
+    "phoneNumber": "klickerz86",
+    "itemDetails": [
+        {
+            "name": "VCR 3 JAM",
+            "price": 10000,
+            "quantity": 1
+        }
+    ],
+    "returnUrl": "https:\/\/billing.klickerz.my.id\/?_route=order\/view\/15\/check",
+    "signature": "7f28bb4cc246d5db8b93491d4416716f"
+}
+RESPONSE:
+{"merchantCode":"DS28131","reference":"DS2813126D1Z0NIM5A1MNORD","paymentUrl":"https://sandbox.duitku.com/topup/topupdirectv2.aspx?ref=BR263FKFJ8XG3TJASE6","vaNumber":"1308200221190083","amount":"10000","statusCode":"00","statusMessage":"SUCCESS"}
+

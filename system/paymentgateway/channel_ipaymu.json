@@ -1,0 +1,13 @@
+[
+    { "id": "va_bca", "name": "VA BCA" },
+    { "id": "va_bni", "name": "VA BNI" },
+    { "id": "va_mandiri", "name": "VA Mandiri" },
+    { "id": "va_bri", "name": "VA BRI" },
+    { "id": "va_cimb", "name": "VA CIMB Niaga" },
+    { "id": "va_perm", "name": "VA Permata" },
+    { "id": "qris_mpm", "name": "QRIS" },
+    { "id": "cstore_alfamart", "name": "Alfamart" },
+    { "id": "cstore_indomaret", "name": "Indomaret" },
+    { "id": "cc_cc", "name": "Credit Card" },
+    { "id": "paylater_akulaku", "name": "Akulaku PayLater" }
+]

@@ -1,0 +1,34 @@
+a{
+    "datetime": "2026-03-05 03:56:56",
+    "data": {
+        "request": {
+            "name": "bodrex",
+            "phone": "6281554077474",
+            "email": "klicknet55@gmail.com",
+            "amount": 15000,
+            "notifyUrl": "https:\/\/klickerz.my.id\/phpnuxbill\/?_route=callback\/ipaymu",
+            "referenceId": "54",
+            "paymentMethod": "qris",
+            "paymentChannel": "mpm"
+        },
+        "response": "{\"Status\":200,\"Success\":true,\"Message\":\"Success\",\"Data\":{\"SessionId\":\"54\",\"TransactionId\":32651486,\"ReferenceId\":\"54\",\"Via\":\"QRIS\",\"Channel\":\"MPM\",\"PaymentNo\":\"00020101021226650013ID.CO.BTN.WWW011893600200116012000202154560301601200020303UKE51440014ID.CO.QRIS.WWW0215ID20264805995080303UKE520460125303360540815105.005802ID5906IPAYMU6015JAKARTA SELATAN6105121906230051920260305035656214450703A0163041E50\",\"QrString\":\"00020101021226650013ID.CO.BTN.WWW011893600200116012000202154560301601200020303UKE51440014ID.CO.QRIS.WWW0215ID20264805995080303UKE520460125303360540815105.005802ID5906IPAYMU6015JAKARTA SELATAN6105121906230051920260305035656214450703A0163041E50\",\"PaymentName\":\"iPaymu\",\"SubTotal\":15000,\"Fee\":105,\"Total\":15105,\"FeeDirection\":\"BUYER\",\"Expired\":\"2026-03-05 04:01:55\",\"QrImage\":\"https:\\\/\\\/my.ipaymu.com\\\/qris-basic\\\/260305-248674-32651486-035656\",\"QrTemplate\":\"https:\\\/\\\/my.ipaymu.com\\\/qris\\\/260305-248674-32651486-035656\",\"Terminal\":\"213141251124\",\"NNSCode\":null,\"NMID\":\"\",\"Note\":null,\"Escrow\":false}}",
+        "error": ""
+    }
+}
+{
+    "datetime": "2026-03-05 03:59:31",
+    "data": {
+        "request": {
+            "name": "bodrex",
+            "phone": "6281554077474",
+            "email": "klicknet55@gmail.com",
+            "amount": 15000,
+            "notifyUrl": "https:\/\/klickerz.my.id\/phpnuxbill\/?_route=callback\/ipaymu",
+            "referenceId": "54",
+            "paymentMethod": "va",
+            "paymentChannel": "bri"
+        },
+        "response": "{\"Status\":200,\"Success\":true,\"Message\":\"Success\",\"Data\":{\"SessionId\":\"54\",\"TransactionId\":32651510,\"ReferenceId\":\"54\",\"Via\":\"VA\",\"Channel\":\"BRI\",\"PaymentNo\":\"57889300018364669\",\"PaymentName\":\"iPaymu Klicknet\",\"SubTotal\":15000,\"Fee\":3500,\"Total\":18500,\"FeeDirection\":\"BUYER\",\"Expired\":\"2026-03-05 05:59:30\",\"Note\":null,\"Escrow\":false}}",
+        "error": ""
+    }
+}

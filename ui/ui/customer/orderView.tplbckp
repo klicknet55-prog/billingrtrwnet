@@ -1,0 +1,270 @@
+{include file="customer/header.tpl"}
+
+<div class="container" style="max-width:600px;margin:auto;">
+
+<div class="panel panel-default" style="border-radius:16px;box-shadow:0 10px 35px rgba(0,0,0,.08);">
+
+<div class="panel-body" style="padding:25px">
+
+<h3 style="text-align:center;margin-bottom:20px">
+Detail Transaksi
+</h3>
+
+
+{* ===================== IPAYMU MODE ===================== *}
+
+{if $trx['status']==1 && $trx['gateway']=='ipaymu'}
+
+{assign var=req value=$trx['pg_request']|json_decode:true}
+
+<div style="text-align:center">
+
+<h4>
+Pembayaran {$trx['payment_method']|upper}
+</h4>
+
+<h2 style="color:#1a73e8;margin:15px 0">
+{Lang::moneyFormat($trx['price'])}
+</h2>
+
+
+{* ===================== VA ===================== *}
+
+{if strtolower($trx['payment_method'])=='va'}
+
+<div style="background:#f6f9ff;
+            padding:20px;
+            border-radius:12px;
+            margin:20px 0">
+
+<div style="font-size:26px;
+            font-weight:bold;
+            letter-spacing:2px"
+     id="vaNumber">
+
+{$trx['pg_url_payment']}
+
+</div>
+
+<div style="margin-top:10px;color:#666">
+Virtual Account {$trx['payment_channel']|upper}
+</div>
+
+</div>
+
+<button onclick="copyVA()"
+style="width:100%;
+       padding:12px;
+       border:none;
+       border-radius:10px;
+       background:#1a73e8;
+       color:#fff;
+       font-weight:bold">
+
+Copy Nomor VA
+
+</button>
+
+{/if}
+
+
+
+{* ===================== QRIS ===================== *}
+
+{if strtolower($trx['payment_method'])=='qris'}
+
+<div style="margin:20px 0">
+
+{if $req.QrString}
+
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=260x260&data={$req.QrString|escape}"
+style="width:230px;
+border-radius:12px">
+
+{else}
+
+<img src="{$req.QrImage}"
+style="width:260px;
+border-radius:12px">
+
+{/if}
+
+</div>
+
+<div style="color:#555">
+Scan QRIS menggunakan aplikasi pembayaran
+</div>
+
+{/if}
+
+
+
+{* ===================== EXPIRED ===================== *}
+
+<div style="margin-top:20px;
+color:#e53935;
+font-weight:bold">
+
+Berlaku sampai <br>
+
+{date($_c['date_format'], strtotime($trx['expired_date']))}
+{date('H:i', strtotime($trx['expired_date']))}
+
+</div>
+
+
+
+{* ===================== BUTTON ===================== *}
+
+<div style="margin-top:25px">
+
+<a href="{Text::url('order/view/', $trx['id'], '/check')}"
+class="btn btn-success btn-block"
+style="padding:12px;font-weight:bold">
+
+Saya Sudah Bayar
+
+</a>
+
+<a href="{Text::url('order/view/', $trx['id'], '/cancel')}"
+class="btn btn-danger btn-block"
+style="margin-top:10px">
+
+Batalkan Transaksi
+
+</a>
+
+</div>
+
+</div>
+
+{/if}
+
+{* ===================== END IPAYMU ===================== *}
+
+
+
+{* ===================== TABLE INFO ===================== *}
+
+<div class="table-responsive" style="margin-top:30px">
+
+<table class="table table-bordered">
+
+<tr>
+<td>Status</td>
+<td>
+
+{if $trx['status']==1}UNPAID
+{elseif $trx['status']==2}PAID
+{elseif $trx['status']==3}FAILED
+{elseif $trx['status']==4}CANCELED
+{else}UNKNOWN{/if}
+
+</td>
+</tr>
+
+<tr>
+<td>Gateway</td>
+<td>{$trx['gateway']|upper}</td>
+</tr>
+
+<tr>
+<td>Package</td>
+<td>{$plan['name_plan']}</td>
+</tr>
+
+<tr>
+<td>Total</td>
+<td style="font-weight:bold">
+{Lang::moneyFormat($trx['price'])}
+</td>
+</tr>
+
+<tr>
+<td>Expired</td>
+<td>
+
+{date($_c['date_format'], strtotime($trx['expired_date']))}
+{date('H:i', strtotime($trx['expired_date']))}
+
+</td>
+</tr>
+
+{if $trx['status']==2}
+
+<tr>
+<td>Paid Date</td>
+<td>
+
+{date($_c['date_format'], strtotime($trx['paid_date']))}
+{date('H:i', strtotime($trx['paid_date']))}
+
+</td>
+</tr>
+
+{/if}
+
+</table>
+
+</div>
+
+
+{* ===================== DEFAULT GATEWAY ===================== *}
+
+{if $trx['status']==1 && $trx['gateway']!='ipaymu'}
+
+<div style="margin-top:20px">
+
+<a href="{$trx['pg_url_payment']}"
+class="btn btn-primary btn-block">
+
+Pay Now
+
+</a>
+
+<a href="{Text::url('order/view/', $trx['id'], '/check')}"
+class="btn btn-info btn-block"
+style="margin-top:10px">
+
+Check Payment
+
+</a>
+
+<a href="{Text::url('order/view/', $trx['id'], '/cancel')}"
+class="btn btn-danger btn-block"
+style="margin-top:10px"
+
+
+onclick="return ask(this, 'Cancel transaksi?')">
+ Cancel
+</a>
+
+</div>
+
+
+{/if}
+
+
+</div>
+</div>
+
+</div>
+
+
+
+<script>
+
+function copyVA(){
+
+var text=document.getElementById("vaNumber").innerText;
+
+navigator.clipboard.writeText(text);
+
+alert("Nomor VA berhasil dicopy");
+
+}
+
+</script>
+
+
+{include file="customer/footer.tpl"}

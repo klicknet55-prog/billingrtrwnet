@@ -1,0 +1,99 @@
+# ----------------------------------------
+# Sensitive and local-only configuration
+# ----------------------------------------
+config.php
+.env
+.env.*
+
+# ----------------------------------------
+# OS / editor files
+# ----------------------------------------
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+/.vs/
+
+# ----------------------------------------
+# Local helper files
+# ----------------------------------------
+test.php
+sms.php
+scanLang.php
+
+# ----------------------------------------
+# Runtime cache / compiled artifacts
+# ----------------------------------------
+ui/ui/compiled/
+ui/compiled/*.php
+ui/cache/*.php
+system/cache/**
+qrcode/cache/**
+!system/cache/index.html
+
+# ----------------------------------------
+# Local custom pages/themes/ui overrides
+# ----------------------------------------
+ui/ui_custom/**
+!ui/ui_custom/index.html
+!ui/ui_custom/README.md
+ui/themes/**
+!ui/themes/index.html
+!ui/themes/README.md
+
+# ----------------------------------------
+# Plugins and payment gateway custom code
+# ----------------------------------------
+
+
+
+
+# ----------------------------------------
+# User-generated uploads and invoice files
+# ----------------------------------------
+system/uploads/**
+!system/uploads/*.default.png
+!system/uploads/paid.png
+system/uploads/sms/**
+!system/uploads/sms/index.html
+system/uploads/system/**
+!system/uploads/system/index.html
+system/uploads/invoices/**
+
+# ----------------------------------------
+# Language and device customization folders
+# ----------------------------------------
+system/lan/**
+!system/lan/index.html
+!system/lan/indonesia.json
+!system/lan/spanish.json
+!system/lan/turkish.json
+!system/lan/english.json
+!system/lan/country.json
+
+system/devices/**
+!system/devices/readme.md
+!system/devices/Dummy.php
+!system/devices/Radius.php
+!system/devices/RadiusRest.php
+!system/devices/MikrotikPppoe.php
+!system/devices/MikrotikPppoeCustom.php
+!system/devices/MikrotikHotspot.php
+!system/devices/MikrotikVpn.php
+# ----------------------------------------
+# Docs: keep publishable docs only
+# ----------------------------------------
+docs/**
+!docs/*.html
+!docs/*.md
+!docs/insomnia.rest.json
+
+# ----------------------------------------
+# Archives / dumps and local infra files
+# ----------------------------------------
+*.zip
+*.tar
+*.gz
+*.sql.gz
+docker-compose.yml
+.htaccess
