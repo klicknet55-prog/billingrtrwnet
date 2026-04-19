@@ -17,9 +17,7 @@ Thumbs.db
 # ----------------------------------------
 # Local helper files
 # ----------------------------------------
-test.php
-sms.php
-scanLang.php
+
 
 # ----------------------------------------
 # Runtime cache / compiled artifacts
@@ -28,15 +26,12 @@ ui/ui/compiled/
 ui/compiled/*.php
 ui/cache/*.php
 system/cache/**
-qrcode/cache/**
 !system/cache/index.html
 
 # ----------------------------------------
 # Local custom pages/themes/ui overrides
 # ----------------------------------------
-ui/ui_custom/**
-!ui/ui_custom/index.html
-!ui/ui_custom/README.md
+
 ui/themes/**
 !ui/themes/index.html
 !ui/themes/README.md
@@ -51,25 +46,12 @@ ui/themes/**
 # ----------------------------------------
 # User-generated uploads and invoice files
 # ----------------------------------------
-system/uploads/**
-!system/uploads/*.default.png
-!system/uploads/paid.png
-system/uploads/sms/**
-!system/uploads/sms/index.html
-system/uploads/system/**
-!system/uploads/system/index.html
-system/uploads/invoices/**
+
 
 # ----------------------------------------
 # Language and device customization folders
 # ----------------------------------------
-system/lan/**
-!system/lan/index.html
-!system/lan/indonesia.json
-!system/lan/spanish.json
-!system/lan/turkish.json
-!system/lan/english.json
-!system/lan/country.json
+
 
 system/devices/**
 !system/devices/readme.md
